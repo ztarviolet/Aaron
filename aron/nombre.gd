@@ -5,15 +5,16 @@ var letras_en_imagen = []
 var indice_letra = 0
 var controlador  # Referencia al nodo que contiene la variable 'mensaje'
 var letra_anterior = ""
-
+var texto
 func _ready():
 	cargar_letras()
 	controlador = get_node("Node2D")  # Asegúrate de que la ruta sea correcta
 
 func _process(delta: float) -> void:
-	var texto = $LineEdit.text.to_lower()
+	texto = $LineEdit.text.to_lower()
 	if texto == "" or indice_letra >= texto.length():
 		return
+	
 
 	var letra_actual = texto[indice_letra]
 	var letra_detectada = controlador.mensaje.to_lower()
@@ -39,6 +40,7 @@ func _on_button_pressed() -> void:
 	letras_en_imagen.clear()
 	indice_letra = 0
 	controlador.abrir()  # Asegúrate que este método exista en el nodo "Node2D"
+	Nombre.nombre = texto
 
 	var texto = $LineEdit.text.to_lower()
 	for letra in texto:
@@ -46,6 +48,7 @@ func _on_button_pressed() -> void:
 			letras_en_imagen.append(letras_imagenes[letra])
 		else:
 			letras_en_imagen.append(null)
+	
 
 	if letras_en_imagen.size() > 0:
 		mostrar_letra(indice_letra)
