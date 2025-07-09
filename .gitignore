@@ -23,7 +23,7 @@ mono_crash.*.json
 godot/
 *.import
 *.tmp
-
+internal/
 # Ignorar recursos grandes si no son necesarios para subir
 *.png
 *.mp4
