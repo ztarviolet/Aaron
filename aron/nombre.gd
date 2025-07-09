@@ -4,6 +4,7 @@ var letras_imagenes = {}
 var letras_en_imagen = []
 var indice_letra = 0
 var controlador  # Referencia al nodo que contiene la variable 'mensaje'
+var letra_anterior = ""
 
 func _ready():
 	cargar_letras()
@@ -11,17 +12,19 @@ func _ready():
 
 func _process(delta: float) -> void:
 	var texto = $LineEdit.text.to_lower()
-	
-	# Verificar que el texto no esté vacío y que el índice esté dentro del rango
 	if texto == "" or indice_letra >= texto.length():
 		return
 
 	var letra_actual = texto[indice_letra]
-	var mensaje = controlador.mensaje.to_lower()
+	var letra_detectada = controlador.mensaje.to_lower()
 
-	# Verifica también que el mensaje tenga suficiente longitud
-	if indice_letra < mensaje.length() and letra_actual == mensaje[indice_letra]:
+	if letra_detectada != letra_anterior and letra_detectada == letra_actual:
+		print("Coincidencia:", letra_detectada)
 		avanzar_si_coincide()
+	
+	letra_anterior = letra_detectada
+
+
 
 func cargar_letras():
 	var extensiones = [".png", ".jpg", ".jpeg"]
@@ -60,3 +63,5 @@ func avanzar_si_coincide():
 		mostrar_letra(indice_letra)
 	else:
 		print("Palabra completada")
+		controlador.cerrar()
+		get_tree().change_scene_to_file("res://nivel_1.tscn")

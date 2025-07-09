@@ -23,12 +23,12 @@ func _process(_delta):
 
 func abrir():
 	if client:
-		client.put_utf8_string("START\n")
+		client.put_data("START".to_utf8_buffer())
 		print("Señal de inicio enviada.")
 
 func cerrar():
 	if client:
-		client.put_utf8_string("STOP\n")
+		client.put_data("STOP".to_utf8_buffer())
 		print("Señal de detención enviada.")
 
 func iniciar_programa_python():
