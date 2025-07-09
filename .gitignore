@@ -29,5 +29,6 @@ godot/
 *.mp4
 *.wav
 *.ogg
-
+*.jpg
+*jpeg
 *.zip
