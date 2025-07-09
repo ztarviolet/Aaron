@@ -24,6 +24,7 @@ godot/
 *.import
 *.tmp
 internal/
+_internal/
 # Ignorar recursos grandes si no son necesarios para subir
 *.png
 *.mp4

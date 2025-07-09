@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmpdjxa6jlolf"]
+
+[ext_resource type="Script" path="res://nombre.gd" id="1_bgb5r"]
+[ext_resource type="Texture2D" uid="uid://dh7fa36rupoo6" path="res://cartoon-house-hallway-and-living-room-interior-free-vector.jpg" id="2_ow6sn"]
+[ext_resource type="Script" path="res://node_2d.gd" id="3_g4uo3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ey6qr"]
+font_size = 57
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bgb5r")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Cartoon-house-hallway-and-living-room-interior-free-vector" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(577, 318.875)
+scale = Vector2(0.597917, 0.672477)
+texture = ExtResource("2_ow6sn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 266.0
+offset_top = 86.0
+offset_right = 770.0
+offset_bottom = 164.0
+text = "escribe tu nombre"
+label_settings = SubResource("LabelSettings_ey6qr")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 270.0
+offset_top = 196.0
+offset_right = 762.0
+offset_bottom = 249.0
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 418.0
+offset_top = 264.0
+offset_right = 645.0
+offset_bottom = 295.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_top = 170.0
+offset_right = 180.0
+offset_bottom = 284.0
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_g4uo3")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 684.0
+offset_top = 338.0
+offset_right = 776.0
+offset_bottom = 378.0
+text = "enviar"
+
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
