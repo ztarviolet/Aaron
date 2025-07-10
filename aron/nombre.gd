@@ -68,3 +68,5 @@ func avanzar_si_coincide():
 		print("Palabra completada")
 		controlador.cerrar()
 		get_tree().change_scene_to_file("res://nivel_1.tscn")
+		Nombre.nivel =+ 1
+		Nombre.save_game()

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://node_2d.gd" id="3_g4uo3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ey6qr"]
-font_size = 57
+font_size = 58
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bgb5r")
